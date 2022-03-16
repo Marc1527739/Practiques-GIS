@@ -1,0 +1,46 @@
+Exercici 1.- Escaneig de ports. (0.5p)
+a. > nmap ip
+   També serveix > nmap --open ip o > nmap -sS ip.
+b1. Basicament envia cert paquets i evalua la resposta d'aquest.
+b2. La máquina ha trobat 7 ports oberts.
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+903/tcp  open  iss-console-mgr
+1042/tcp open  afrog
+1043/tcp open  boinc
+3306/tcp open  mysql
+
+Exercici 2.- Detecció del sistema operatiu (0.5p)
+a. > nmap -O -v ip
+b1. No ha tingut exit, segurament hi ha algun problema amb la maquina virtual.
+Resultats: Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+b2. Fa diferents proves per verificar quin SO executem, com: medició  de temps d'activitat, la 
+dificultat de fer una conexió TCP falsa...
+
+Exercici 3.- Opcions de l'escàner de ports. (0.5p)
+a. > nmap -sT ip
+   > nmap -sS ip
+   > nmap  -sN ip
+b1.
+Escaner -sT Aquest si que fa una connexio TCP, pot comportar sospites en una red. 
+Escaner -sS No arriba a obrir una conexio TCP completa, envia un SYN, rep SYN/ACK port obert 
+,un RST no hi ha ningú escoltant al port o no rep res.
+Escaner -sN Aquest es basa en verificar sistemes que compleixen amb el RFC, si un packet no 
+conte SYN, ACK o RST resultara en l'enviament de RST per lo tant esta tancat. 
+b2.
+Amb -sT i -sS mateixos resultats, latencia diferent.
+Amb -sN resultat diferent, no es mostra ningún port. 
+
+Exercici 4.- Detecció de la versió dels serveis. (0.5p)
+a. > nmap -sV ip
+b. 
+PORT     STATE SERVICE         VERSION
+135/tcp  open  msrpc           Microsoft Windows RPC
+139/tcp  open  netbios-ssn     Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds?
+903/tcp  open  ssl/vmware-auth VMware Authentication Daemon 1.10 (Uses VNC, SOAP)
+1042/tcp open  afrog?
+1043/tcp open  ssl/boinc?
+3306/tcp open  mysql           MySQL 8.0.27
