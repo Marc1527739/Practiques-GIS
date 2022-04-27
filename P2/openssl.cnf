@@ -34,7 +34,7 @@ default_ca	= CA_default		# The default ca section
 ####################################################################
 [ CA_default ]
 
-dir		= "/root/Desktop/P2”		# Where everything is kept
+dir		= "/home/user/Documents/Practiques-GIS/P2" # Where everything is kept
 certs		= $dir/certs		# Where the issued certs are kept
 crl_dir		= $dir/crl		# Where the issued crl are kept
 database		= $dir/index.txt	# database index file.
@@ -48,7 +48,7 @@ crlnumber	= $dir/crlnumber.txt	# the current crl number
 					# must be commented out to leave a V1 CRL
 crl		= $dir/crl.pem 		# The current CRL
 private_key	= $dir/private/ca.key 	# The private key
-RANDFILE		= $dir/private/randFile	# private random number file
+RANDFILE		= $dir/private/randFile.txt	# private random number file
 
 x509_extensions	= usr_cert		# The extentions to add to the cert
 
