@@ -48,7 +48,7 @@ crlnumber	= $dir/crlnumber.txt	# the current crl number
 					# must be commented out to leave a V1 CRL
 crl		= $dir/crl.pem 		# The current CRL
 private_key	= $dir/private/ca.key 	# The private key
-RANDFILE		= $dir/private/randFile.txt	# private random number file
+RANDFILE		= $dir/private/randFile	# private random number file
 
 x509_extensions	= usr_cert		# The extentions to add to the cert
 
@@ -77,11 +77,15 @@ policy		= policy_match
 
 # For the CA policy
 [ policy_match ]
-countryName		= match
-stateOrProvinceName	= match
-organizationName	= match
+#countryName		= match
+#stateOrProvinceName	= match
+#organizationName	= match
+countryName		= optional
+stateOrProvinceName	= optional
+organizationName	= optional
 organizationalUnitName	= optional
-commonName		= supplied
+#commonName		= supplied
+commonName		= optional
 emailAddress		= optional
 
 # For the 'anything' policy
